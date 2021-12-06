@@ -16,14 +16,14 @@ public class ConfigurationWiki {
     @BeforeMethod
     public void  setUp() throws MalformedURLException {
         DesiredCapabilities capabilities= new DesiredCapabilities();
-        capabilities.setCapability("", "");
-        capabilities.setCapability("", "");
+        capabilities.setCapability("platformName", "Android");
+        capabilities.setCapability("deviceName", "qa_new");
         capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION,"8.1");
-        capabilities.setCapability("", "");
-        capabilities.setCapability("", ".");
+        capabilities.setCapability("appPackage", "org.wikipedia");
+        capabilities.setCapability("appActivities", ".main.MainActivity");
 
         capabilities.setCapability("automationName", "Appium");
-        capabilities.setCapability("app","C:/Users/julia/Documents/QA/Mobile/v.0.0.3.apk");
+        capabilities.setCapability("app","C:/Users/julia/Documents/QA/Mobile/wiki.apk");
         driver = new AppiumDriver<MobileElement>(new URL("http://127.0.0.1:4723/wd/hub"),capabilities);
     }
     @AfterMethod
@@ -32,4 +32,4 @@ public class ConfigurationWiki {
 
     }
 }
-}
+
