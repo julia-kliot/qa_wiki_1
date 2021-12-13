@@ -24,7 +24,24 @@ public class LoginScreen extends BaseScreen {
         logsButton.click();
         return new HomeScreens(driver);
 
-
+        public LoginScreen loginComplexWithErrorMessage(Auth auth){
+            should(emailEditText,20);
+            type(emailEditText,auth.getEmail());
+            type(passwordEditText, auth.getPassword());
+            hideKeyboard();
+            loginButton.click();
+            return this;
+        }
+        public LoginScreen checkErrorMessage(String text){
+            shouldHave(errorMessage,text,10);
+            return this;
+        }
+        public LoginScreen confirmErrorMessage(){
+            okBtn.click();
+            return this;
+        }
+        public boolean isLoginButtonPresent(){
+            return isDisplayedWithExp(loginButton);
 
 
 

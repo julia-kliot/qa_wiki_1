@@ -2,10 +2,16 @@ package congigWiki;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.events.EventFiringWebDriverFactory;
 import io.appium.java_client.remote.MobileCapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -13,7 +19,10 @@ import java.net.URL;
 public class ConfigurationWiki {
     protected static AppiumDriver<MobileElement> driver;
 
-    @BeforeMethod
+    protected  Logger logger= LoggerFactory.getLogger(ConfigurationWiki.class);
+
+   // @BeforeMethod
+    @BeforeSuite
     public void  setUp() throws MalformedURLException {
         DesiredCapabilities capabilities= new DesiredCapabilities();
         capabilities.setCapability("platformName", "Android");
@@ -25,8 +34,10 @@ public class ConfigurationWiki {
         capabilities.setCapability("automationName", "Appium");
         capabilities.setCapability("app","C:/Users/julia/Documents/QA/Mobile/wiki.apk");
         driver = new AppiumDriver<MobileElement>(new URL("http://127.0.0.1:4723/wd/hub"),capabilities);
+        driver= EventFiringWebDriverFactory.getEventFiringWebDriver(driver, new AppiumListener());
     }
-    @AfterMethod
+   //@AfterMethod
+   @AfterSuite
     public void  tearDown(){
         driver.quit();
 
