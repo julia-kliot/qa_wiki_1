@@ -48,7 +48,7 @@ public class LoginTest extends ConfigurationWiki {
 
     }
 
-    @Test (dataProvider = "logindaracvs", dataProviderClass = DataProviderMy.class)
+    @Test (dataProvider = "loginDataCvs", dataProviderClass = DataProviderMy.class)
     public void loginDataFromCSV(Auth user) {
         boolean isLogiButtonPresent = new MainScreens(driver)
                 .clickOnFlowButton()

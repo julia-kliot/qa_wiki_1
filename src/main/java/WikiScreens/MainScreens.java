@@ -17,6 +17,8 @@ public class MainScreens extends BaseScreen {
     MobileElement searchButton;
     @FindBy(xpath = "//*[@resource-id='org.wikipedia:id/menu_overflow_button']")
     MobileElement flowButton;
+    @FindBy(xpath = "//*[@resource-id='org.wikipedia:id/horizontal_scroll_list_item_text']")
+    MobileElement firstArticle;
 
 
 
@@ -33,6 +35,10 @@ public class MainScreens extends BaseScreen {
         should(flowButton,20);
         flowButton.click();
         return new TultipLoginScreen(driver);
+    }
+    public ArticlePreviewScreens clickOnArticle(){
+        firstArticle.click();
+        return new ArticlePreviewScreens(driver);
     }
 
 

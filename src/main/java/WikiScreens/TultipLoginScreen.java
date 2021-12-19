@@ -13,15 +13,18 @@ public class TultipLoginScreen extends BaseScreen{
     MobileElement logWikiButton;
     @FindBy(xpath = "//*[@resource-id='org.wikipedia:id/explore_overflow_log_out']")
     MobileElement logOutButton;
-    @FindBy(xpath = "//*[@resource-id='org.wikipedia:id/explore_overflow_account_name']")
-    MobileElement accountName;
-    public boolean isAccountPresent() {
-        // should(accountName,20);
-        return accountName.isDisplayed();
+   // @FindBy(xpath = "//*[@resource-id='org.wikipedia:id/explore_overflow_account_name']")
+    //MobileElement accountName;
+
+
+
+    public boolean isLogged() {
+         should(logOutButton,20);
+        return logOutButton.isDisplayed();
     }
 
     public TultipLoginScreen isAccountPresentAssert() {
-        Assert.assertTrue(accountName.isDisplayed());
+        Assert.assertTrue(logOutButton.isDisplayed());
         return new TultipLoginScreen(driver);
     }
     public LoginScreen clickOnLogInWikiButton() {
@@ -40,6 +43,10 @@ public class TultipLoginScreen extends BaseScreen{
     public MainScreens logOut(){
         //should(logOutButton,40);
         logOutButton.click();
+        return new MainScreens(driver);
+    }
+    public MainScreens closeTultip(){
+        logWikiButton.click();
         return new MainScreens(driver);
     }
 

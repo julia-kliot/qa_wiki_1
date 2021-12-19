@@ -21,7 +21,7 @@ public class DataProviderMy {
     }
 
    @DataProvider
-    public Iterator <Object[]> logindatacvs() throws IOException {
+    public static  Iterator <Object[]> loginDataCvs() throws IOException {
         List<Object[]> list = new ArrayList<>();
         BufferedReader reader = new BufferedReader(new FileReader(new File("C:/Users/julia/Documents/QA/QA_Automation/QA/qa_wiki_1/src/test/resources/logindata.csv")));
         String line = reader.readLine();
