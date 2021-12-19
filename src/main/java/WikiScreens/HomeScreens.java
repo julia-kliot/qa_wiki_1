@@ -11,23 +11,9 @@ public class HomeScreens extends BaseScreen {
         super(driver);
     }
 
-    @FindBy(xpath = "//*[@resource-id='org.wikipedia:id/explore_overflow_account_name']")
-    MobileElement accountName;
-    @FindBy(xpath = "//*[@class='android.widget.TextView']")
-    MobileElement logText;
 
 
 
-
-
-        public boolean isAccountPresent() {
-            return accountName.isDisplayed();
-
-        }
-    public HomeScreens isLAccountPresentAssert() {
-        Assert.assertTrue(accountName.isDisplayed());
-        return this;
-    }
 
 
 

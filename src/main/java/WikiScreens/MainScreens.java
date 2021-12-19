@@ -9,17 +9,14 @@ public class MainScreens extends BaseScreen {
         super(driver);
     }
 
+
+
     @FindBy(xpath = "//*[@resource-id='org.wikipedia:id/view_card_header_title']")
     MobileElement detailView;
     @FindBy(xpath = "//*[@class='android.widget.ImageView']")
     MobileElement searchButton;
     @FindBy(xpath = "//*[@resource-id='org.wikipedia:id/menu_overflow_button']")
     MobileElement flowButton;
-    @FindBy(xpath = "//*[@resource-id='org.wikipedia:id/explore_overflow_account_name'")
-    MobileElement logWikiButton;
-
-    @FindBy(xpath = "//*[@resource-id='org.wikipedia:id/explore_overflow_account_name']")
-    MobileElement accountName;
 
 
 
@@ -28,32 +25,26 @@ public class MainScreens extends BaseScreen {
 
     }
 
-    public MainScreens clickSideButton() {
-        flowButton.click();
-        return this;
-    }
-
-    public SearchScreen clickSearchButton() {
+    public SearchScreen clickOnSearchFromMainPage() {
         searchButton.click();
         return new SearchScreen(driver);
-
     }
-
-    public LoginScreen clickLogWiki() {
-        logWikiButton.click();
-        return new LoginScreen(driver);
-    }
-
-
-
-
-
+    public TultipLoginScreen clickOnFlowButton() {
+        should(flowButton,20);
+        flowButton.click();
+        return new TultipLoginScreen(driver);
     }
 
 
 
 
-    }
+
+
 
 }
+
+
+
+
+
 

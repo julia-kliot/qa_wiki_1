@@ -36,17 +36,16 @@ public class BaseScreen {
         new WebDriverWait(driver,timer)
                 .until(ExpectedConditions.textToBePresentInElement(element,text));
     }
-    @Test
-    public void loginComplexCheckErrorMessage(){
-        boolean isLoginButtonPresent=
-                new LoginScreen(driver)
-                        .loginComplexWithErrorMessage(Auth.builder().username("").password("").build())
-                        .checkErrorMessage("Wrong email or password")
-                        .confirmErrorMessage()
-                        .isLoginButtonPresent();
+  //  @Test
+   // public void loginComplexCheckErrorMessage(){
+      //  boolean isLoginButtonPresent=
+              //  new LoginScreen(driver)
+                     //   .loginComplexWithErrorMessage(Auth.builder().username("").password("").build())
+                     //   .checkErrorMessage("Wrong email or password")
+                      //  .confirmErrorMessage()
+                      //  .isLoginButtonPresent();
 
-        Assert.assertTrue(isLoginButtonPresent);
+      //  Assert.assertTrue(isLoginButtonPresent);
 
     }
 
-}

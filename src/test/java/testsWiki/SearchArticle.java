@@ -12,7 +12,7 @@ public class SearchArticle  extends ConfigurationWiki {
     @BeforeMethod
     public void  preConditions(){
         new MainScreens(driver)
-                .clickSearchButton();
+                .clickOnSearchFromMainPage();
     }
 
     @Test

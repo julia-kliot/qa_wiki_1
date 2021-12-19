@@ -8,49 +8,60 @@ import congigWiki.DataProviderMy;
 import models.Auth;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class LoginTest extends ConfigurationWiki {
 
-
-
-    @Test(dataProvider = "loginData", dataProviderClass = DataProviderMy.class)
-    public void login(){
-        boolean isAccountPresent   = new MainScreen(driver)
+    @Test
+    public void loginTest() {
+        boolean isLogiButtonPresent = new MainScreens(driver)
                 .clickOnFlowButton()
                 .clickOnLogInWikiButton()
                 .fillInLoginForm(Auth.builder().username("juliakliot.jk").password("Misha240613").build())
-                .isAccountPresent();
-        Assert.assertTrue(isAccountPresent);
+                .clickOnFlowButton()
+                .logOut()
+                .clickOnFlowButton()
+                .isLogiButtonPresent();
+
+        Assert.assertTrue(isLogiButtonPresent);
 
 
     }
-@Test(dataProvider = "loginData", dataProviderClass = DataProviderMy.class)
-public void loginDT(Auth user){
 
-    boolean isBTN  = new MainScreen(driver)
+
+    //@Test (dataProvider = "loginData", dataProviderClass = DataProviderMy.class)
+    @Test (enabled = false)
+    public void loginDT(Auth user) {
+        boolean isLogiButtonPresent = new MainScreens(driver)
                 .clickOnFlowButton()
                 .clickOnLogInWikiButton()
                 .fillInLoginForm(user)
-                .isAccountPresentAssert();
-        //openMenu
-    //logOUT
-    // .isLoginButtonPresent();
-        Assert.assertTrue(isBTN);
+                .clickOnFlowButton()
+                .isAccountPresentAssert()
+                .logOut()
+                .clickOnFlowButton()
+                .isLogiButtonPresent();
+
+        Assert.assertTrue(isLogiButtonPresent);
 
 
-}
-    @Test(dataProvider = "loginDataCVS", dataProviderClass = DataProviderMy.class)
-    public void loginCVS(Auth user){
+    }
 
-        boolean isBTN  = new MainScreen(driver)
+    @Test (dataProvider = "logindaracvs", dataProviderClass = DataProviderMy.class)
+    public void loginDataFromCSV(Auth user) {
+        boolean isLogiButtonPresent = new MainScreens(driver)
                 .clickOnFlowButton()
                 .clickOnLogInWikiButton()
                 .fillInLoginForm(user)
-                .isAccountPresentAssert();
-        //openMenu
-        //logOUT
-        // .isLoginButtonPresent();
-        Assert.assertTrue(isBTN);
+                .clickOnFlowButton()
+                .isAccountPresentAssert()
+                .logOut()
+                .clickOnFlowButton()
+                .isLogiButtonPresent();
 
+        Assert.assertTrue(isLogiButtonPresent);
+
+
+    }
 }
