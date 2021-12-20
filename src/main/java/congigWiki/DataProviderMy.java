@@ -11,7 +11,7 @@ import java.util.List;
 public class DataProviderMy {
 
     @DataProvider
-    public Iterator<Object[]> loginData() {
+    public static Iterator<Object[]> loginData() {
         List<Object[]> list = new ArrayList<>();
         list.add(new Object[]{Auth.builder().username("juliakliot.jk").password("Misha240613").build()});
         // list.add(new Object[]{Auth.builder().username("juliakliot.jk").password("Misha240613").build()});

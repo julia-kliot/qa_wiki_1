@@ -28,10 +28,25 @@ public class LoginTest extends ConfigurationWiki {
 
 
     }
+    @Test (dataProvider = "loginData", dataProviderClass = DataProviderMy.class)
+    public void loginTest2(Auth user) {
+         new MainScreens(driver)
+                .clickOnFlowButton()
+                .clickOnLogInWikiButton()
+                .fillInLoginForm(user)
+                .clickOnFlowButton()
+                .logOut();
+                //.clickOnFlowButton()
+                //.isLogiButtonPresent();
+
+       // Assert.assertTrue(isLogiButtonPresent);
 
 
-    //@Test (dataProvider = "loginData", dataProviderClass = DataProviderMy.class)
-    @Test (enabled = false)
+    }
+
+
+    //@Test
+    @Test
     public void loginDT(Auth user) {
         boolean isLogiButtonPresent = new MainScreens(driver)
                 .clickOnFlowButton()
@@ -47,20 +62,21 @@ public class LoginTest extends ConfigurationWiki {
 
 
     }
-
+//android.widget.FrameLayout
     @Test (dataProvider = "loginDataCvs", dataProviderClass = DataProviderMy.class)
     public void loginDataFromCSV(Auth user) {
-        boolean isLogiButtonPresent = new MainScreens(driver)
+      String inf =  new MainScreens(driver)
                 .clickOnFlowButton()
                 .clickOnLogInWikiButton()
                 .fillInLoginForm(user)
                 .clickOnFlowButton()
-                .isAccountPresentAssert()
+               .isAccountPresentAssert()
                 .logOut()
-                .clickOnFlowButton()
-                .isLogiButtonPresent();
+              .isElOnMainPagePresAssert()
+               .clickOnFlowButton()
+              .getInf();
+      Assert.assertEquals(inf,"Log in to Wikipedia");
 
-        Assert.assertTrue(isLogiButtonPresent);
 
 
     }

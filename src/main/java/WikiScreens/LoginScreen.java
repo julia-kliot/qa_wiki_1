@@ -30,6 +30,7 @@ public class LoginScreen extends BaseScreen {
         toggleButton.click();
         //type(password, user.getPassword());
         password.click();
+        //  TouchAction <?> touchAction = new TouchAction<>(driver);
         Actions action = new Actions(driver);
         action.sendKeys(user.getPassword()).perform();
         logButton.click();

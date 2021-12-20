@@ -25,7 +25,7 @@ public class TultipLoginScreen extends BaseScreen{
 
     public TultipLoginScreen isAccountPresentAssert() {
         Assert.assertTrue(logOutButton.isDisplayed());
-        return new TultipLoginScreen(driver);
+        return this;
     }
     public LoginScreen clickOnLogInWikiButton() {
        // should(logWikiButton,20);
@@ -48,6 +48,9 @@ public class TultipLoginScreen extends BaseScreen{
     public MainScreens closeTultip(){
         logWikiButton.click();
         return new MainScreens(driver);
+    }
+    public String  getInf() {
+        return logWikiButton.getText();
     }
 
 }
